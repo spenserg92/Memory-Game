@@ -17,28 +17,19 @@ h1 {
 }
 
 h2 {
-    display: grid;
-    grid-template-columns: 5vmin 5vmin;
-    grid-template-rows: 5vmin 5vmin;
+    display: flex;
     justify-content: center;
     align-items: center;
     
 }
 
-.stats {
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: end;
-}
+
 
 main {
     display: grid;
     grid-template-columns: 20vmin 20vmin 20vmin 20vmin 20vmin 20vmin;
-    grid-template-rows: 10vmin 10vmin 10vmin;
+    grid-template-rows: 10vmin 10vmin 10vmin 10vmin 10vmin 10vmin;
     justify-content: center;
-    
-    
-
 }
 
 
@@ -46,15 +37,19 @@ main * {
     display: flex;
     justify-content: center;
     align-items: center;
+    
 }
 
 
 .board {
     border: 1vmin solid black;
+    gap: 10px;
 }
 
-button {
-    justify-self: center;
+#new-game {
+    display: flex;
+    justify-content: center;
+    align-items: center;
     width: 15vmin;
     margin: 2vmin;
     background-color: cyan;
