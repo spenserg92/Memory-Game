@@ -6,30 +6,43 @@
 
 body {
     height: 100vh;
-    flex-direction: row;
+    flex-direction: column;
 }
 
+.flex-ctr {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
 
 
 h1 {
     display: flex;
     justify-content: center;
+    align-content: center;
+    
 }
 
 h2 {
     display: flex;
     justify-content: center;
     align-items: center;
-    
+    color: lightseagreen
 }
 
+h3 {
+    display: flex;
+    justify-content: right;
+    align-items: flex-end;
+}
 
 
 main {
     display: grid;
     grid-template-columns: 20vmin 20vmin 20vmin 20vmin 20vmin 20vmin;
-    grid-template-rows: 10vmin 10vmin 10vmin 10vmin 10vmin 10vmin;
-    justify-content: center;
+    grid-template-rows: 20vmin 20vmin 20vmin ;
+    border: 1vmin solid black;
+    margin: 1vmin;
 }
 
 
@@ -37,16 +50,19 @@ main * {
     display: flex;
     justify-content: center;
     align-items: center;
-    
+    margin: 1vmin;
 }
 
 
 .board {
     border: 1vmin solid black;
     gap: 10px;
+    
 }
 
-#new-game {
+
+
+div > button {
     display: flex;
     justify-content: center;
     align-items: center;
