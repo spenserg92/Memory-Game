@@ -21,32 +21,22 @@ const TILE_STATE = {
     matched: 'matched'
 }
 
-const tiles = {
-    img: 'imgs/bird.jpg',
-    img: 'imgs/chipmunk.jpg',
-    img: 'imgs/fox.jpg',
-    img: 'imgs/horse.jpg',
-    img: 'imgs/kitten.jpg',
-    img: 'imgs/llama.jpg',
-    img: 'imgs/panther.jpg',
-    img: 'imgs/puppy.jpg',
-    img: 'imgs/red panda.jpg',
-}
-console.log(tiles)
+
+
 
 
 
 /*----- state variables -----*/
 // intial state variables
 let guesses
-
 let results
+let board
 
 /*----- cached elements  -----*/
 
 const messageEl = document.querySelector('h2')
 const newGameButton = document.querySelector('button')
-const gameBoard = [...document.querySelectorAll('.card')]
+
 
 // console.log(gameBoard)
 
@@ -62,16 +52,43 @@ function init(){
         [0, 0, 0, 0, 0, 0],
         [0, 0, 0, 0, 0, 0],
     ]
-    render()
+    // render()
 }
 
 init()
 
-function renderBoard(){
+
+// function renderBoard (boardElement) {
     
+//     }
+
+function generateCards(boardSize){
+    const totalPairs = boardSize / 2;
+    const idxs = ['A', 'B', 'C', 'D', 'E', 'F', 'G', 'H', 'I'];
+    const tiles = [
+        'imgs/bird.jpg',
+        'imgs/chipmunk.jpg',
+        'imgs/fox.jpg',
+        'imgs/horse.jpg',
+        'imgs/kitten.jpg',
+        'imgs/llama.jpg',
+        'imgs/panther.jpg',
+        'imgs/puppy.jpg',
+        'imgs/red panda.jpg',
+    ]
+
+    let cards = [];
+
+    for (let i = 0; i < totalPairs; i++){
+        cards.push({idx: idxs[i], tile: tiles[i], isFlipped: false });
+        cards.push({idx: idxs[i], tile: tiles[i], isFlipped: false });
+    }
+    cards.sort(() => Math.random() - 0.5);
+    return cards;
 }
-    
-    
+console.log(generateCards)
 
 
 /*----- event listeners -----*/
+
+newGameButton.addEventListener('click', init)
