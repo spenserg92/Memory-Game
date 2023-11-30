@@ -22,8 +22,17 @@ const TILE_STATE = {
 }
 
 const tiles = {
-   img: fox.jpg
+    img: 'imgs/bird.jpg',
+    img: 'imgs/chipmunk.jpg',
+    img: 'imgs/fox.jpg',
+    img: 'imgs/horse.jpg',
+    img: 'imgs/kitten.jpg',
+    img: 'imgs/llama.jpg',
+    img: 'imgs/panther.jpg',
+    img: 'imgs/puppy.jpg',
+    img: 'imgs/red panda.jpg',
 }
+console.log(tiles)
 
 
 
@@ -37,12 +46,32 @@ let results
 
 const messageEl = document.querySelector('h2')
 const newGameButton = document.querySelector('button')
-const gameBoard = [...document.querySelectorAll('.board')]
-console.log(gameBoard)
+const gameBoard = [...document.querySelectorAll('.card')]
+
+// console.log(gameBoard)
 
 
 /*----- functions -----*/
 
+function init(){
+    guesses = 3
+    results = null
+
+    board = [
+        [0, 0, 0, 0, 0, 0],
+        [0, 0, 0, 0, 0, 0],
+        [0, 0, 0, 0, 0, 0],
+    ]
+    render()
+}
+
+init()
+
+function renderBoard(){
+    
+}
+    
+    
 
 
 /*----- event listeners -----*/

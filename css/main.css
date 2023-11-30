@@ -10,8 +10,6 @@ body {
 }
 
 
-
-
 h1 {
     display: flex;
     justify-content: center;
@@ -35,8 +33,8 @@ h3 {
 
 main {
     display: grid;
-    grid-template-columns: 20vmin 20vmin 20vmin 20vmin 20vmin 20vmin;
-    grid-template-rows: 20vmin 20vmin 20vmin ;
+    grid-template-columns: 6fr 6fr 6fr 6fr 6fr 6fr;
+    grid-template-rows: 20vmin 20vmin 20vmin;
     border: 1vmin solid black;
     margin: 1vmin;
 }
@@ -50,7 +48,7 @@ main * {
 }
 
 
-.board {
+.card {
     display: flex;
     justify-content: center;
     border: 1vmin solid black;
@@ -59,17 +57,22 @@ main * {
 }
 
 
-
-div > button {
+.button {
     display: flex;
     justify-content: center;
-    align-items: center;
-    width: 15vmin;
-    margin: 2vmin;
+    margin: 3vmin;
+
+}
+
+div > button {
+    justify-self: center;
     background-color: cyan;
     color: magenta;
+    margin-right: 4vmin;
+    margin-left: 4vmin;
     border: 1vmin solid magenta;
     border-radius: 3vmin;
-    font: 3vmin;
+    width: 15vmin;
+    font-size: 2vmin;
     
 }
