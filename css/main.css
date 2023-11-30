@@ -6,14 +6,10 @@
 
 body {
     height: 100vh;
-    flex-direction: column;
+    flex-direction: row;
 }
 
-.flex-ctr {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-}
+
 
 
 h1 {
@@ -55,6 +51,8 @@ main * {
 
 
 .board {
+    display: flex;
+    justify-content: center;
     border: 1vmin solid black;
     gap: 10px;
     

@@ -14,16 +14,35 @@
 
 
 /*----- constants -----*/
+// variable for tile states
+const TILE_STATE = {
+    hidden: 'hidden',
+    revealed: 'revealed',
+    matched: 'matched'
+}
+
+const tiles = {
+   img: fox.jpg
+}
+
 
 
 /*----- state variables -----*/
+// intial state variables
+let guesses
 
+let results
 
 /*----- cached elements  -----*/
 
-
-/*----- event listeners -----*/
+const messageEl = document.querySelector('h2')
+const newGameButton = document.querySelector('button')
+const gameBoard = [...document.querySelectorAll('.board')]
+console.log(gameBoard)
 
 
 /*----- functions -----*/
 
+
+
+/*----- event listeners -----*/
