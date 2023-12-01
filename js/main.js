@@ -15,78 +15,80 @@
 
 /*----- constants -----*/
 // variable for tile states
-const TILE_STATE = {
-    hidden: 'hidden',
-    revealed: 'revealed',
-    matched: 'matched'
-}
-
-
-
+const totalMatches = 9
+const images = [
+    
+    'imgs/bird.jpg',      'imgs/bird.jpg',
+    'imgs/chipmunk.jpg',  'imgs/chipmunk.jpg',
+    'imgs/fox.jpg',       'imgs/fox.jpg',
+    'imgs/horse.jpg',     'imgs/horse.jpg',
+    'imgs/kitten.jpg',    'imgs/kitten.jpg',
+    'imgs/llama.jpg',     'imgs/llama.jpg',
+    'imgs/panther.jpg',   'imgs/panther.jpg',
+    'imgs/puppy.jpg',     'imgs/puppy.jpg',
+    'imgs/red panda.jpg',  'imgs/red panda.jpg',
+]
 
 
 
 /*----- state variables -----*/
 // intial state variables
-let guesses
-let results
-let board
+let matchesFound = 0
+let tries = 3
+let selectedCards = []
+let canClick = true
+
 
 /*----- cached elements  -----*/
 
 const messageEl = document.querySelector('h2')
 const newGameButton = document.querySelector('button')
 
+const shuffledImages = shuffleArray(images);
 
-// console.log(gameBoard)
+const gameBoard = document.querySelectorAll('.card')
+
+gameBoard.forEach((card, index) => {
+    card.dataset.index = index;
+    card.addEventListener('click', init)
+    card.style.backgroundImage = `url(${shuffledImages[index]})`;
+})
 
 
 /*----- functions -----*/
 
-function init(){
-    guesses = 3
-    results = null
-
-    board = [
-        [0, 0, 0, 0, 0, 0],
-        [0, 0, 0, 0, 0, 0],
-        [0, 0, 0, 0, 0, 0],
-    ]
-    // render()
-}
-
-init()
-
-
-// function renderBoard (boardElement) {
-    
-//     }
-
-function generateCards(boardSize){
-    const totalPairs = boardSize / 2;
-    const idxs = ['A', 'B', 'C', 'D', 'E', 'F', 'G', 'H', 'I'];
-    const tiles = [
-        'imgs/bird.jpg',
-        'imgs/chipmunk.jpg',
-        'imgs/fox.jpg',
-        'imgs/horse.jpg',
-        'imgs/kitten.jpg',
-        'imgs/llama.jpg',
-        'imgs/panther.jpg',
-        'imgs/puppy.jpg',
-        'imgs/red panda.jpg',
-    ]
-
-    let cards = [];
-
-    for (let i = 0; i < totalPairs; i++){
-        cards.push({idx: idxs[i], tile: tiles[i], isFlipped: false });
-        cards.push({idx: idxs[i], tile: tiles[i], isFlipped: false });
+function shuffleArray(array){
+    const shuffledArray = [...array];
+    for (let i = shuffledArray.length - 1; i > 0; i--){
+        const j = Math.floor(Math.random() * (i + 1));
+        [shuffledArray[i], shuffledArray[j]] = [shuffledArray[j], shuffledArray[i]]
     }
-    cards.sort(() => Math.random() - 0.5);
-    return cards;
+    return shuffledArray;
 }
-console.log(generateCards)
+console.log(shuffleArray)
+
+function init(){
+    matchesFound = 0;
+    tries = 3;
+    canClick = true;
+    selectedCards = [];
+
+    gameBoard.forEach(card => {
+        card.classList.remove('visible');
+    })
+
+    const reshuffledImages = shuffleArray(images);
+
+    gameBoard.forEach((card, index) => {
+        card.stlye.backgroundImage = `url(${reshuffledImages[index]})`
+    });
+}
+
+function flipCard(){}
+function checkForMatch(){}
+function checkForWin(){}
+
+
 
 
 /*----- event listeners -----*/
