@@ -14,14 +14,14 @@ h1 {
     display: flex;
     justify-content: center;
     align-content: center;
-    
+    color: #7209b7
 }
 
 h2 {
     display: flex;
     justify-content: center;
     align-items: center;
-    color: lightseagreen
+    color: #4361ee
 }
 
 h3 {
@@ -35,8 +35,9 @@ main {
     display: grid;
     grid-template-columns: 6fr 6fr 6fr 6fr 6fr 6fr;
     grid-template-rows: 20vmin 20vmin 20vmin;
-    border: 1vmin solid black;
+    border: 1vmin solid #3a0ca3;
     margin: 1vmin;
+    background-color: #3a0ca3;
 }
 
 
@@ -51,7 +52,7 @@ main * {
 .card {
     display: flex;
     justify-content: center;
-    border: 1vmin solid black;
+    border: 1vmin solid #f72585;
     gap: 10px;
     background-color: lightseagreen;
 }
@@ -66,11 +67,11 @@ main * {
 
 div > button {
     justify-self: center;
-    background-color: cyan;
-    color: magenta;
+    background-color: #4cc9f0;
+    color: #f72585;
     margin-right: 4vmin;
     margin-left: 4vmin;
-    border: 1vmin solid magenta;
+    border: 1vmin solid #f72585;
     border-radius: 3vmin;
     width: 15vmin;
     font-size: 2vmin;

@@ -80,19 +80,33 @@ function init(){
     canClick = true;
     selectedCards = [];
     
-    const backgroundImage = 'imgs/Mountain Background.jpg'
     
     gameBoard.forEach((card) => {
-        card.style = backgroundImage
+        card.style.backgroundImage = 'imgs/Mountain Background.jpg'
     });
     gameBoard.forEach(card => {
         card.classList.remove('visible');
     })
+    
 }
 
 
 
-function flipCard(){}
+function flipCard(index){
+    if(!canClick) return;
+    const card = gameBoard[index];
+
+    if(!card.classList.contains('visible') && selectedCards.length < 2){
+        card.classList.add('visible');
+        selectedCards.push({index, image: shuffledImages[index]})
+    }
+    if(selectedCards.length === 2){
+        canClick = false;
+        setTimeout(checkForMatch, 1000)
+    }
+}
+
+
 function checkForMatch(){}
 function checkForWin(){}
 
