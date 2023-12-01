@@ -53,7 +53,7 @@ main * {
     justify-content: center;
     border: 1vmin solid black;
     gap: 10px;
-    
+    background-color: lightseagreen;
 }
 
 
