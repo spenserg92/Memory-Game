@@ -65,7 +65,7 @@ function shuffleArray(array){
     }
     return shuffledArray;
 }
-console.log(shuffleArray)
+console.log(shuffleArray(images))
 
 function init(){
     matchesFound = 0;
@@ -80,7 +80,7 @@ function init(){
     const reshuffledImages = shuffleArray(images);
 
     gameBoard.forEach((card, index) => {
-        card.stlye.backgroundImage = `url(${reshuffledImages[index]})`
+        card.style.backgroundImage = `url(${reshuffledImages[index]})`
     });
 }
 
