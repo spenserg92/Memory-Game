@@ -55,9 +55,11 @@ gameBoard.forEach((card, index) => {
     card.dataset.index = index;
     card.classList.add('unflipped');
     card.addEventListener('click', init)
-    card.style.backgroundImage = `url(imgs/Mountain Background.jpg)`;
+    card.style.backgroundImage = 'url("imgs/Mountain Background.jpg")';
     
 })
+
+console.log(gameBoard)
 
 
 /*----- functions -----*/
@@ -70,7 +72,7 @@ function shuffleArray(array){
     }
     return shuffledArray;
 }
-console.log(shuffleArray(images))
+// console.log(shuffleArray(images))
 
 function init(){
     matchesFound = 0;
@@ -79,15 +81,16 @@ function init(){
     selectedCards = [];
     
     const backgroundImage = 'imgs/Mountain Background.jpg'
+    
     gameBoard.forEach((card) => {
         card.style = backgroundImage
     });
     gameBoard.forEach(card => {
         card.classList.remove('visible');
     })
-
-
 }
+
+
 
 function flipCard(){}
 function checkForMatch(){}
