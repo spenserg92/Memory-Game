@@ -20,17 +20,19 @@
 // variable for tile states
 const totalMatches = 9
 const images = [
-    
-    'imgs/bird.jpg',      'imgs/bird.jpg',
-    'imgs/chipmunk.jpg',  'imgs/chipmunk.jpg',
-    'imgs/fox.jpg',       'imgs/fox.jpg',
-    'imgs/horse.jpg',     'imgs/horse.jpg',
-    'imgs/kitten.jpg',    'imgs/kitten.jpg',
-    'imgs/llama.jpg',     'imgs/llama.jpg',
-    'imgs/panther.jpg',   'imgs/panther.jpg',
-    'imgs/puppy.jpg',     'imgs/puppy.jpg',
-    'imgs/red panda.jpg',  'imgs/red panda.jpg',
+
+    'imgs/bird.jpg',
+    'imgs/chipmunk.jpg',
+    'imgs/fox.jpg',
+    'imgs/horse.jpg',
+    'imgs/kitten.jpg',
+    'imgs/llama.jpg',
+    'imgs/panther.jpg',
+    'imgs/puppy.jpg',
+    'imgs/red_panda.jpg',
 ]
+
+const background = 'imgs/background.jpg'
 
 
 
@@ -47,72 +49,79 @@ let canClick = true
 const messageEl = document.querySelector('h2')
 const newGameButton = document.querySelector('button')
 
-const shuffledImages = shuffleArray(images);
+
 
 const gameBoard = document.querySelectorAll('.card')
 
 gameBoard.forEach((card, index) => {
     card.dataset.index = index;
     card.classList.add('unflipped');
-    card.addEventListener('click', init)
-    card.style.backgroundImage = 'url("imgs/Mountain Background.jpg")';
-    
+    card.addEventListener('click', flipCard)
+
 })
 
-console.log(gameBoard)
+// console.log(gameBoard)
 
 
 /*----- functions -----*/
 
-function shuffleArray(array){
+function shuffleArray(array) {
     const shuffledArray = [...array];
-    for (let i = shuffledArray.length - 1; i > 0; i--){
+    for (let i = shuffledArray.length - 1; i > 0; i--) {
         const j = Math.floor(Math.random() * (i + 1));
         [shuffledArray[i], shuffledArray[j]] = [shuffledArray[j], shuffledArray[i]]
     }
     return shuffledArray;
 }
-// console.log(shuffleArray(images))
+console.log(shuffleArray(images))
 
-function init(){
+function init() {
     matchesFound = 0;
     tries = 3;
     canClick = true;
     selectedCards = [];
-    
-    
-    gameBoard.forEach((card) => {
-        card.style.backgroundImage = 'imgs/Mountain Background.jpg'
-    });
-    gameBoard.forEach(card => {
-        card.classList.remove('visible');
+
+    const shuffledImages = shuffleArray([...images, ...images])
+    gameBoard.forEach((card, i) => {
+        card.style.backgroundImage = "url(" + background + ")"
+        card.dataset.revealed = "url(" + shuffledImages[i] + ")"
+        card.style.backgroundSize = 'contain'
+
     })
-    
 }
 
 
 
-function flipCard(index){
-    if(!canClick) return;
-    const card = gameBoard[index];
+function flipCard(evt) {
+    if (selectedCards.length === 2) return;
+    const card = evt.target
+    card.style.backgroundImage = card.dataset.revealed
 
-    if(!card.classList.contains('visible') && selectedCards.length < 2){
-        card.classList.add('visible');
-        selectedCards.push({index, image: shuffledImages[index]})
+    selectedCards.push(card)
+    if (selectedCards.length === 2) {
+        if (selectedCards[0].dataset.revealed === selectedCards[1].dataset.revealed) {
+            selectedCards = []
+        }
+        else {
+            setTimeout(()=>{
+                selectedCards.forEach((c) => {
+                    c.style.backgroundImage = "url(" + background + ")"
+                })
+                selectedCards = []
+            }, 2000)
+        }
+        
     }
-    if(selectedCards.length === 2){
-        canClick = false;
-        setTimeout(checkForMatch, 1000)
-    }
+
 }
 
 
-function checkForMatch(){}
-function checkForWin(){}
+
+function checkForWin() { }
 
 
 
 
 /*----- event listeners -----*/
-
+init()
 newGameButton.addEventListener('click', init)
