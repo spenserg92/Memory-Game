@@ -18,7 +18,7 @@
 
 /*----- constants -----*/
 // variable for tile states
-
+totalMatches = 9
 const images = [
 
     'imgs/bird.jpg',
@@ -85,7 +85,7 @@ function init() {
     gameBoard.forEach((card, i) => {
         card.style.backgroundImage = "url(" + background + ")"
         card.dataset.revealed = "url(" + shuffledImages[i] + ")"
-        card.style.backgroundSize = 'contain'
+        card.style.backgroundSize = 'cover'
     })
 }
 
@@ -99,6 +99,10 @@ function flipCard(evt) {
     selectedCards.push(card)
     if (selectedCards.length === 2) {
         if (selectedCards[0].dataset.revealed === selectedCards[1].dataset.revealed) {
+            matchesFound++
+            if (matchesFound === totalMatches ){
+                messageEl.innerText = 'Congrats, You Win!'
+            }
             selectedCards = []
         }
         else {
@@ -108,10 +112,6 @@ function flipCard(evt) {
                 })
                 selectedCards = []
             }, 2000)
-        }
-        if (selectedCards.length === card.dataset.revealed){
-            messageEl = 'Congrats, You Win!'
-            console.log(messageEl)
         }
     }
 
