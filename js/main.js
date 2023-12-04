@@ -18,7 +18,7 @@
 
 /*----- constants -----*/
 // variable for tile states
-const totalMatches = 9
+
 const images = [
 
     'imgs/bird.jpg',
@@ -39,7 +39,7 @@ const background = 'imgs/background.jpg'
 /*----- state variables -----*/
 // intial state variables
 let matchesFound = 0
-let tries = 3
+let tries = 5
 let selectedCards = []
 let canClick = true
 
@@ -55,7 +55,7 @@ const gameBoard = document.querySelectorAll('.card')
 
 gameBoard.forEach((card, index) => {
     card.dataset.index = index;
-    card.classList.add('unflipped');
+    // card.classList.add('unflipped');
     card.addEventListener('click', flipCard)
 
 })
@@ -77,7 +77,7 @@ console.log(shuffleArray(images))
 
 function init() {
     matchesFound = 0;
-    tries = 3;
+    tries = 5;
     canClick = true;
     selectedCards = [];
 
@@ -86,7 +86,6 @@ function init() {
         card.style.backgroundImage = "url(" + background + ")"
         card.dataset.revealed = "url(" + shuffledImages[i] + ")"
         card.style.backgroundSize = 'contain'
-
     })
 }
 
@@ -110,14 +109,19 @@ function flipCard(evt) {
                 selectedCards = []
             }, 2000)
         }
-        
+        if (selectedCards.length === card.dataset.revealed){
+            messageEl = 'Congrats, You Win!'
+            console.log(messageEl)
+        }
     }
 
 }
 
 
 
-function checkForWin() { }
+// function checkForWin() { 
+    
+// }
 
 
 

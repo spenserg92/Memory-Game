@@ -1,5 +1,5 @@
 * {
-    background-color: lightsteelblue;
+    background-color: #ABD2FA;
     font-family: Arial, Helvetica, sans-serif;
     box-sizing: border-box;
 }
@@ -14,14 +14,14 @@ h1 {
     display: flex;
     justify-content: center;
     align-content: center;
-    color: #7209b7
+    color: #296EB4
 }
 
 h2 {
     display: flex;
     justify-content: center;
     align-items: center;
-    color: #4361ee
+    color: #FF6F59
 }
 
 h3 {
@@ -35,9 +35,10 @@ main {
     display: grid;
     grid-template-columns: 6fr 6fr 6fr 6fr 6fr 6fr;
     grid-template-rows: 20vmin 20vmin 20vmin;
-    border: 1vmin solid #3a0ca3;
+    border: 1vmin solid #0B3948;
+    border-radius: 25px;
     margin: 1vmin;
-    background-color: #3a0ca3;
+    background-color: #0B3948;
 }
 
 
@@ -52,9 +53,10 @@ main * {
 .card {
     display: flex;
     justify-content: center;
-    border: 1vmin solid #f72585;
-    gap: 10px;
     background-color: lightseagreen;
+    border-radius: 10%;
+    margin: 2vmin;
+    
 }
 
 
@@ -68,12 +70,19 @@ main * {
 div > button {
     justify-self: center;
     background-color: #4cc9f0;
-    color: #f72585;
+    color: #198725;
     margin-right: 4vmin;
     margin-left: 4vmin;
-    border: 1vmin solid #f72585;
+    border: 1vmin solid #519872;
     border-radius: 3vmin;
     width: 15vmin;
     font-size: 2vmin;
     
+}
+
+#new-game:hover {
+    background-color: #296EB4;
+    border: 1 vmin solid #4cc9f0;
+    border-radius: 3vmin;
+    color: #4cc9f0;
 }
