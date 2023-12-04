@@ -43,12 +43,18 @@ let tries = 5
 let selectedCards = []
 let canClick = true
 
+let wins = 0
+let losses = 0
+
 
 /*----- cached elements  -----*/
 
 const messageEl = document.querySelector('h2')
+
 const newGameButton = document.querySelector('button')
 
+const winsEl = document.querySelector('#wins')
+const lossesEl = document.querySelector('#losses')
 
 
 const gameBoard = document.querySelectorAll('.card')
@@ -102,6 +108,8 @@ function flipCard(evt) {
             matchesFound++
             if (matchesFound === totalMatches ){
                 messageEl.innerText = 'Congrats, You Win!'
+                wins++
+                winsEl.innerText = 'Wins' + wins
             }
             
             selectedCards = []
@@ -118,6 +126,8 @@ function flipCard(evt) {
                 messageEl.innerText = 'Sorry, you lose. Try again.';
                 canClick = false
                 clearTimeout(timeoutId)
+                losses--
+                lossesEl.innerText = 'Losses: ' + losses
             }
         }
         
