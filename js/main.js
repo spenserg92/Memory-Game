@@ -87,6 +87,7 @@ function init() {
         card.dataset.revealed = "url(" + shuffledImages[i] + ")"
         card.style.backgroundSize = 'cover'
     })
+    messageEl.innerText = ''
 }
 
 
