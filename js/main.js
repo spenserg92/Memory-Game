@@ -3,13 +3,13 @@
 // Board is intialized
 // There are 18 cards on the board
 // There are 9 matches
-// Cards are intialized to unflipped
-// Unflipped cards have a background image
+// Cards are intialized to background image
 // User clicks on a card to start the game
-// User has 3 tries to guess all the matches
+// User has 5 tries to guess all the matches
 // When card is clicked it flips to show a new image
 // if match is made both cards stay flipped
 // if match is not made cards flip back to original position
+// element displays number of guesses left
 // if user runs out of guesses show "Sorry, you lose." message.
 // if user guessses all matches correctly show "Congrats, you win!" message
 // messages will display on the page as an element
@@ -34,8 +34,6 @@ const images = [
 
 const background = 'imgs/background.jpg'
 
-
-
 /*----- state variables -----*/
 // intial state variables
 let matchesFound = 0
@@ -45,6 +43,8 @@ let canClick = true
 
 let wins = 0
 let losses = 0
+
+let guesses 
 
 
 /*----- cached elements  -----*/
@@ -56,7 +56,6 @@ const newGameButton = document.querySelector('button')
 const winsEl = document.querySelector('#wins')
 const lossesEl = document.querySelector('#losses')
 
-
 const gameBoard = document.querySelectorAll('.card')
 
 gameBoard.forEach((card, index) => {
@@ -64,9 +63,6 @@ gameBoard.forEach((card, index) => {
     card.addEventListener('click', flipCard)
 
 })
-
-// console.log(gameBoard)
-
 
 /*----- functions -----*/
 
@@ -78,7 +74,6 @@ function shuffleArray(array) {
     }
     return shuffledArray;
 }
-// console.log(shuffleArray(images))
 
 function init() {
     matchesFound = 0;
@@ -99,6 +94,7 @@ function init() {
 
 function flipCard(evt) {
     if (selectedCards.length === 2) return;
+    
     const card = evt.target
     card.style.backgroundImage = card.dataset.revealed
 
@@ -111,7 +107,6 @@ function flipCard(evt) {
                 wins++
                 winsEl.innerText = 'Wins' + wins
             }
-            
             selectedCards = []
         }
         else {
@@ -129,10 +124,10 @@ function flipCard(evt) {
                 losses--
                 lossesEl.innerText = 'Losses: ' + losses
             }
+
         }
         
     }
-
 }
 
 /*----- event listeners -----*/
