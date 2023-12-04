@@ -125,15 +125,6 @@ function flipCard(evt) {
 
 }
 
-
-
-// function checkForWin() { 
-    
-// }
-
-
-
-
 /*----- event listeners -----*/
 init()
 newGameButton.addEventListener('click', init)

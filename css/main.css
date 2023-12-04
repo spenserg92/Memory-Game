@@ -28,15 +28,28 @@ h2 {
     display: grid;
     font-size: small;
     justify-items: center;
-    grid-template-columns: 2fr 2fr 2fr 2fr;
+    grid-template-columns: 2fr 2fr 2fr 2fr 2fr 2fr;
+    grid-template-rows: 50% 50%;
     
-    /* display: flex;
-    justify-content: right;
-    align-items: flex-end; */
 }
 
-#scores{
-    grid-column: 3/5;
+.score * {
+    border: 1vmin;
+    border-color: solid #0B3948;
+    border-radius: 3vmin;
+}
+
+#wins{
+    grid-column: 6/7;
+    background-color: #FF6F59;
+    
+    
+}
+
+#losses {
+    grid-row: 2/3;
+    grid-column: 6/7;
+    background-color: #FF6F59;
     
 }
 
