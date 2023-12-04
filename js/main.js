@@ -55,7 +55,6 @@ const gameBoard = document.querySelectorAll('.card')
 
 gameBoard.forEach((card, index) => {
     card.dataset.index = index;
-    // card.classList.add('unflipped');
     card.addEventListener('click', flipCard)
 
 })
@@ -73,7 +72,7 @@ function shuffleArray(array) {
     }
     return shuffledArray;
 }
-console.log(shuffleArray(images))
+// console.log(shuffleArray(images))
 
 function init() {
     matchesFound = 0;
@@ -104,16 +103,24 @@ function flipCard(evt) {
             if (matchesFound === totalMatches ){
                 messageEl.innerText = 'Congrats, You Win!'
             }
+            
             selectedCards = []
         }
         else {
-            setTimeout(()=>{
+            const timeoutId = setTimeout(()=>{
                 selectedCards.forEach((c) => {
                     c.style.backgroundImage = "url(" + background + ")"
                 })
                 selectedCards = []
             }, 2000)
+            tries--
+            if (tries === 0){
+                messageEl.innerText = 'Sorry, you lose. Try again.';
+                canClick = false
+                clearTimeout(timeoutId)
+            }
         }
+        
     }
 
 }

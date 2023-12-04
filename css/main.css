@@ -6,7 +6,7 @@
 
 body {
     height: 100vh;
-    flex-direction: row;
+    flex-direction: column;
 }
 
 
@@ -24,12 +24,21 @@ h2 {
     color: #FF6F59
 }
 
-h3 {
-    display: flex;
+.score {
+    display: grid;
+    font-size: small;
+    justify-items: center;
+    grid-template-columns: 2fr 2fr 2fr 2fr;
+    
+    /* display: flex;
     justify-content: right;
-    align-items: flex-end;
+    align-items: flex-end; */
 }
 
+#scores{
+    grid-column: 3/5;
+    
+}
 
 main {
     display: grid;
