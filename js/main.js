@@ -87,7 +87,7 @@ function init() {
         card.dataset.revealed = "url(" + shuffledImages[i] + ")"
         card.style.backgroundSize = 'cover'
     })
-    messageEl.innerText = ''
+    messageEl.innerText = 'Guesses remaining: ' + tries
 }
 
 
@@ -96,6 +96,8 @@ function flipCard(evt) {
     if (selectedCards.length === 2) return;
     
     const card = evt.target
+    
+    if (!card.style.backgroundImage.includes(background)) return;
     card.style.backgroundImage = card.dataset.revealed
 
     selectedCards.push(card)
@@ -117,11 +119,11 @@ function flipCard(evt) {
                 selectedCards = []
             }, 2000)
             tries--
+            messageEl.innerText = 'Guesses remaining: ' + tries
             if (tries === 0){
                 messageEl.innerText = 'Sorry, you lose. Try again.';
-                canClick = false
                 clearTimeout(timeoutId)
-                losses--
+                losses++
                 lossesEl.innerText = 'Losses: ' + losses
             }
 
