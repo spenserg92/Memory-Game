@@ -21,14 +21,14 @@
 totalMatches = 9
 const images = [
 
-    'imgs/bird.jpg',
-    'imgs/chipmunk.jpg',
+    'imgs/turtle.jpg',
+    'imgs/squirrel.jpg',
     'imgs/fox.jpg',
-    'imgs/horse.jpg',
+    'imgs/bunny.jpg',
     'imgs/kitten.jpg',
     'imgs/llama.jpg',
-    'imgs/panther.jpg',
-    'imgs/puppy.jpg',
+    'imgs/dolphin.jpg',
+    'imgs/husky.jpg',
     'imgs/red_panda.jpg',
 ]
 
@@ -37,14 +37,12 @@ const background = 'imgs/background.jpg'
 /*----- state variables -----*/
 // intial state variables
 let matchesFound = 0
-let tries = 5
+let tries = 10
 let selectedCards = []
 let canClick = true
 
 let wins = 0
 let losses = 0
-
-let guesses 
 
 
 /*----- cached elements  -----*/
@@ -77,7 +75,7 @@ function shuffleArray(array) {
 
 function init() {
     matchesFound = 0;
-    tries = 5;
+    tries = 10;
     canClick = true;
     selectedCards = [];
 
@@ -107,7 +105,7 @@ function flipCard(evt) {
             if (matchesFound === totalMatches ){
                 messageEl.innerText = 'Congrats, You Win!'
                 wins++
-                winsEl.innerText = 'Wins' + wins
+                winsEl.innerText = 'Wins: ' + wins
             }
             selectedCards = []
         }
@@ -131,7 +129,7 @@ function flipCard(evt) {
         
     }
 }
+init()
 
 /*----- event listeners -----*/
-init()
 newGameButton.addEventListener('click', init)
