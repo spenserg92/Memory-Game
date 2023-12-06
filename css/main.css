@@ -26,30 +26,27 @@ h2 {
 
 .score {
     display: grid;
-    font-size: small;
+    font-size: smaller;
     justify-items: center;
+    align-items: center;
     grid-template-columns: 2fr 2fr 2fr 2fr 2fr 2fr;
-    grid-template-rows: 50% 50%;
+    grid-template-rows: 40px 40px;
     
-}
-
-.score * {
-    border: 1vmin;
-    border-color: solid #0B3948;
-    border-radius: 3vmin;
 }
 
 #wins{
     grid-column: 6/7;
-    background-color: #FF6F59;
-    
+    color: #FF6F59;
+    justify-self: stretch center;
+    margin: 0px;
     
 }
 
 #losses {
     grid-row: 2/3;
     grid-column: 6/7;
-    background-color: #FF6F59;
+    color: #FF6F59;
+    margin: 0px
     
 }
 
