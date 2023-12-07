@@ -18,15 +18,16 @@ As a user, I want the ability to...
 
 
 # Screen Shots
+![Screenshot 2023-12-07 at 9 13 47 AM](https://github.com/spenserg92/Memory-Game/assets/149332042/7a29d56a-aca3-4742-85e7-c0615a641754)
+![Screenshot 2023-12-07 at 9 13 03 AM](https://github.com/spenserg92/Memory-Game/assets/149332042/7c6a39c4-b962-4720-a6bf-3932184ad015)
+![Screenshot 2023-12-07 at 9 07 40 AM](https://github.com/spenserg92/Memory-Game/assets/149332042/09754314-8573-4cde-929f-154ce04df91b)
 
-![Screenshot 2023-12-05 at 9 47 36 AM](https://github.com/spenserg92/Memory-Game/assets/149332042/4727b50b-2766-4cf1-a1ca-e32e8f50f56b)
-![Screenshot 2023-12-05 at 11 49 47 AM](https://github.com/spenserg92/Memory-Game/assets/149332042/0c3bf12f-63c1-4d09-b9d5-0f7198f8d47f)
-![Screenshot 2023-12-05 at 11 51 49 AM](https://github.com/spenserg92/Memory-Game/assets/149332042/a8b78f3d-fde8-4fbc-9715-a62109110fa7)
+
 
 
 # Technologies Used
 
-  - JavaScript, HTML, CSS...
+  - JavaScript, HTML, CSS
 
 
 # Pseudocode
@@ -45,3 +46,9 @@ As a user, I want the ability to...
 12. if user guessses all matches correctly show "Congrats, you win!" message
 13. messages will display on the page as an element
 14. User can start a new game by clicking the "new game" button
+
+# Next Steps 
+
+1. Add more design
+2. Add another level
+3. Re-format some of the images
