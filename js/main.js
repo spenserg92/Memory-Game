@@ -48,7 +48,6 @@ let losses = 0
 /*----- cached elements  -----*/
 
 const messageEl = document.querySelector('h2')
-
 const newGameButton = document.querySelector('button')
 
 const winsEl = document.querySelector('#wins')
